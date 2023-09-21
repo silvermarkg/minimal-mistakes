@@ -29,12 +29,29 @@
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
           <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">{{ author.location }}</span>
         </li>
+      </ul>
+      {% endif %}
+
+      {% if author.about_url %}
+        <li class="fa-stack fa-2x">
+          <a href="{{ author.about_url }}" itemprop="url"> 
+            <i class="fa-solid fa-circle fa-stack-2x icon-border" aria-hidden="true"></i>
+            <i class="fa-solid fa-info fa-stack-1x fa-inverse" aria-hidden="true"></i>
+            <span class="fa-sr-only">About</span>
+          </a>
+        </li>
       {% endif %}
 
       {% if author.links %}
         {% for link in author.links %}
           {% if link.label and link.url %}
-            <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer me"{% if link.url contains 'http' %} itemprop="sameAs"{% endif %}><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i><span class="label">{{ link.label }}</span></a></li>
+            <li class="fa-stack fa-2x">
+              <a href="{{ link.url }}" rel="nofollow noopener noreferrer me"{% if link.url contains 'http' %} itemprop="sameAs"{% endif %}>
+                <i class="fa-solid fa-circle fa-stack-2x icon-border" aria-hidden="true"></i>
+                <i class="{{ link.icon | default: 'fas fa-link' }} fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                <span class="label">{{ link.label }}</span>
+              </a>
+            </li>
           {% endif %}
         {% endfor %}
       {% endif %}

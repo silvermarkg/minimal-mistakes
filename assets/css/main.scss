@@ -3,7 +3,44 @@
 search: false
 ---
 
+/* Custom colors */
+$silver-color: #bfbfbf;
+$mark-color: #44546a;
+$g-color: #ffc000;
+
+/* Variable customisations */
+$text-color: $silver-color;
+$primary-color: $g-color;
+//$body-color:
+
+/* $link-color-hover: mix(#000, $link-color, 25%) !default;
+$link-color-visited: mix(#fff, $link-color, 15%) !default;
+$masthead-link-color-hover: mix(#000, $primary-color, 25%) !default;
+$navicon-link-color-hover: mix(#fff, $primary-color, 75%) !default;
+*/
+
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+// Customisations
+.site-logo img {
+  max-height: 5rem;
+}
+
+.page__title {
+  a {
+    color: $primary-color;
+  }
+}
+
+.author__urls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-border {
+  color: mix(#ffffff, #000000, 25%) !important;
+  margin-top: -3px;
+}
